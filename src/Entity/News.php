@@ -20,12 +20,12 @@ class News
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Title;
+    private $title;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Picture;
+    private $picture;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -35,7 +35,7 @@ class News
     /**
      * @ORM\Column(type="datetime")
      */
-    private $CreatedAt;
+    private $createdAt;
 
     public function getId(): ?int
     {
@@ -44,24 +44,24 @@ class News
 
     public function getTitle(): ?string
     {
-        return $this->Title;
+        return $this->title;
     }
 
-    public function setTitle(string $Title): self
+    public function setTitle(string $title): self
     {
-        $this->Title = $Title;
+        $this->title = $title;
 
         return $this;
     }
 
     public function getPicture(): ?string
     {
-        return $this->Picture;
+        return $this->picture;
     }
 
-    public function setPicture(string $Picture): self
+    public function setPicture(string $picture): self
     {
-        $this->Picture = $Picture;
+        $this->picture = $picture;
 
         return $this;
     }
@@ -80,12 +80,12 @@ class News
 
     public function getCreatedAt(): ?\DateTimeInterface
     {
-        return $this->CreatedAt;
+        return $this->createdAt;
     }
 
-    public function setCreatedAt(\DateTimeInterface $CreatedAt): self
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
     {
-        $this->CreatedAt = $CreatedAt;
+        $this->createdAt = $createdAt;
 
         return $this;
     }
