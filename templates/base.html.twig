@@ -2,10 +2,9 @@
 <html lang="En">
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-
-        {% block stylesheets %}{{ encore_entry_link_tags('app') }}
-{#            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/lux/bootstrap.min.css">#}
+        <title>{% block title %}Dr Vimont{% endblock %}</title>
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
         {% endblock %}
     </head>
     <body>
@@ -20,32 +19,31 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">A propos</a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Notre Philosophie</a>
-                            <a class="dropdown-item" href="#">Le Cabinet</a>
+                            <a class="dropdown-item" href={{ path('philosophy') }}>Notre Philosophie</a>
+                            <a class="dropdown-item" href="{{ path('office') }}">Le Cabinet</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Interventions</a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Médecine esthétique</a>
-                                <a class="dropdown-item" href="#">Injection d'acide hyaluronique</a>
-                            <a class="dropdown-item" href="#">Chirurgie du visage</a>
-                            <a class="dropdown-item" href="#">Chirurgie silhouette</a>
-                            <a class="dropdown-item" href="#">Chirurgie des cancers cutanés</a>
-                            <a class="dropdown-item" href="#">Reconstruction mammaire</a>
+                            <a class="dropdown-item" href={{ path('medecine_esthetique') }}>Médecine esthétique</a>
+                            <a class="dropdown-item" href={{ path('chirurgiev') }}>Chirurgie du visage</a>
+                            <a class="dropdown-item" href={{ path('chirurgies') }}>Chirurgie de la silhouette</a>
+                            <a class="dropdown-item" href={{ path('chirurgiecc') }}>Chirurgie des cancers cutanés</a>
+                            <a class="dropdown-item" href={{ path('reconstructionm') }}>Reconstruction mammaire</a>
                         </div>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="#">News</a>
+                        <a class="nav-link" href={{ path('news') }}>News</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Photos</a>
+                        <a class="nav-link" href={{ path('picture') }}>Photos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Tarifs</a>
+                        <a class="nav-link" href={{ path('price') }}>Tarifs</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
+                        <a class="nav-link" href={{ path('contact') }}>Contact</a>
                     </li>
                 </ul>
             </div>
@@ -56,9 +54,6 @@
 
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
-            {#<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>#}
         {% endblock %}
     </body>
 </html>
