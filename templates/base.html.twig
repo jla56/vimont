@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="En">
+
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Dr Vimont{% endblock %}</title>
@@ -7,12 +8,14 @@
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
     </head>
+
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="/">Navbar</a>
+            <a class="navbar-brand" href="/"><img src="{{ asset('uploads/logo/logo1.png') }}" width="160" height="160" alt="dr_vimont"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
 
             <div class="collapse navbar-collapse" id="navbarColor03">
                 <ul class="navbar-nav mr-auto">
@@ -26,6 +29,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Interventions</a>
                         <div class="dropdown-menu">
+                            {# TODO: render(controller()) #}
                             <a class="dropdown-item" href={{ path('medecine_esthetique') }}>Médecine esthétique</a>
                             <a class="dropdown-item" href={{ path('chirurgiev') }}>Chirurgie du visage</a>
                             <a class="dropdown-item" href={{ path('chirurgies') }}>Chirurgie de la silhouette</a>
@@ -34,7 +38,10 @@
                         </div>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href={{ path('news') }}>News</a>
+                        <a class="nav-link" href={{ path('news_index') }}>News</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('faq_index') }}">Faq</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href={{ path('picture') }}>Photos</a>
@@ -48,9 +55,20 @@
                 </ul>
             </div>
         </nav>
-        <div class="container">
+
+        <main class="main-content container">
             {% block body %}{% endblock %}
-        </div>
+        </main>
+
+
+        <footer class="footer">
+            <div class="container">
+
+
+            </div>
+        </footer>
+
+
 
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}

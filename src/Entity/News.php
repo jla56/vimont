@@ -5,8 +5,10 @@ namespace App\Entity;
 use App\Repository\NewsRepository;
 use Doctrine\ORM\Mapping as ORM;
 
+
 /**
  * @ORM\Entity(repositoryClass=NewsRepository::class)
+ * @ORM\HasLifecycleCallbacks()
  */
 class News
 {
@@ -28,7 +30,7 @@ class News
     private $picture;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="text")
      */
     private $content;
 
@@ -89,4 +91,19 @@ class News
 
         return $this;
     }
+
+
+    /**
+     * @ORM\PrePersist()
+     */
+    public function prePersist() {
+        $this->setCreatedAt(new \DateTime());
+    }
+
+
+    public function _toString()
+    {
+        return $this->news;
+    }
+
 }
