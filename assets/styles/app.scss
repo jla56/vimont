@@ -1,0 +1,20 @@
+@import "~bootstrap/scss/bootstrap.scss";
+@import "~bootswatch/dist/lux/variables";
+@import "~bootswatch/dist/lux/bootswatch";
+$fa-font-path: "~font-awesome/fonts";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+
+body{
+  position: relative;
+  min-height: 100vh;
+
+}
+.main-content {
+  padding-bottom: 100px;
+}
+.card {
+  img {
+    height: 200px;
+    object-fit: cover;
+  }
+}
