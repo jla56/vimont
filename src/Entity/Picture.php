@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\PictureRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * @ORM\Entity(repositoryClass=PictureRepository::class)
@@ -12,6 +13,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  */
 class Picture
 {
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -37,6 +39,7 @@ class Picture
 
     /**
      * @Vich\UploadableField(mapping="thumbnails",fileNameProperty="thumbnail")
+     * @var File
      */
     private $thumbnailFile;
 

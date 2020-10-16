@@ -16,13 +16,17 @@ use Symfony\Component\Routing\Annotation\Route;
 class CategoryController extends AbstractController
 {
     /**
-     * @Route("/", name="category_index", methods={"GET"})
+     * @Route("/", name="category", methods={"GET"})
      */
     public function index(CategoryRepository $categoryRepository): Response
     {
-        return $this->render('category/index.html.twig', [
-            'categories' => $categoryRepository->findAll(),
-        ]);
+        $repo = $this->getDoctrine()->getRepository(Category::class);
+        $categories= $repo->findAll();
+        return $this->render('category/index.html.twig',[
+            'categories'=> $categories
+
+            ]
+        );
     }
 
     /**

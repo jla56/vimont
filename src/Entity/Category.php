@@ -6,9 +6,11 @@ use App\Repository\CategoryRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=CategoryRepository::class)
+ * @vich\Uploadable()
  */
 class Category
 {
@@ -34,21 +36,7 @@ class Category
      */
     private $content;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $picture;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="categories")
-     * @ORM\JoinColumn(nullable=true)
-     */
-    private $category;
-
-    /**
-     * @ORM\OneToMany(targetEntity=Category::class, mappedBy="category")
-     */
-    private $categories;
 
     /**
      * @ORM\OneToMany(targetEntity=Faq::class, mappedBy="category")
@@ -59,6 +47,51 @@ class Category
      * @ORM\OneToMany(targetEntity=Intervention::class, mappedBy="category")
      */
     private $interventions;
+
+
+    /**
+     * @ORM\Column(type="string", length=100, nullable=true)
+     */
+    private $thumbnail;
+
+    /**
+     * @return mixed
+     */
+    public function getThumbnail()
+    {
+        return $this->thumbnail;
+    }
+
+    /**
+     * @param mixed $thumbnail
+     */
+    public function setThumbnail($thumbnail): void
+    {
+        $this->thumbnail = $thumbnail;
+    }
+
+    /**
+     * @Vich\UploadableField(mapping="thumbnails",fileNameProperty="thumbnail")
+     */
+    private $thumbnailFile;
+
+    /**
+     * @return mixed
+     */
+    public function getThumbnailFile()
+    {
+        return $this->thumbnailFile;
+    }
+
+    /**
+     * @param mixed $thumbnailFile
+     */
+    public function setThumbnailFile($thumbnailFile): void
+    {
+        $this->thumbnailFile = $thumbnailFile;
+
+    }
+
 
     public function __construct()
     {
@@ -108,60 +141,6 @@ class Category
         return $this;
     }
 
-    public function getPicture(): ?string
-    {
-        return $this->picture;
-    }
-
-    public function setPicture(string $picture): self
-    {
-        $this->picture = $picture;
-
-        return $this;
-    }
-
-    public function getCategory(): ?self
-    {
-        return $this->category;
-    }
-
-    public function setCategory(?self $category): self
-    {
-        $this->category = $category;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|self[]
-     */
-    public function getCategories(): Collection
-    {
-        return $this->categories;
-    }
-
-    public function addCategory(self $category): self
-    {
-        if (!$this->categories->contains($category)) {
-            $this->categories[] = $category;
-            $category->setCategory($this);
-        }
-
-        return $this;
-    }
-
-    public function removeCategory(self $category): self
-    {
-        if ($this->categories->contains($category)) {
-            $this->categories->removeElement($category);
-            // set the owning side to null (unless already changed)
-            if ($category->getCategory() === $this) {
-                $category->setCategory(null);
-            }
-        }
-
-        return $this;
-    }
 
     /**
      * @return Collection|Faq[]

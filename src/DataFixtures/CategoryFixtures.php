@@ -4,9 +4,10 @@ namespace App\DataFixtures;
 
 use App\Entity\Category;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 
-class CategoryFixtures extends Fixture
+class CategoryFixtures extends Fixture implements DependentFixtureInterface
 {
 
     public function load(ObjectManager $manager)
@@ -14,44 +15,44 @@ class CategoryFixtures extends Fixture
         $medecinee =new Category();
         $medecinee->setName("medecine esthétique");
         $medecinee->setContent("abcd");
-        $medecinee->setPicture("http://placehold.it/90x90");
+        $medecinee->setThumbnailFile("http://placehold.it/90x90");
         $manager->persist($medecinee);
-        $this->addreference("médecine_esthétique", $medecinee);
+        $this->addreference("médecine esthétique", $medecinee);
 
         $chirurgiev =new Category();
-        $chirurgiev->setName("chirurgie_visage");
+        $chirurgiev->setName("chirurgie visage");
         $chirurgiev->setContent("abcd");
-        $chirurgiev->setPicture("http://placehold.it/90x90");
+        $chirurgiev->setThumbnailFile("http://placehold.it/90x90");
         $manager->persist($chirurgiev);
         $this->addreference("chirurgie_visage", $chirurgiev);
 
         $chirurgies =new Category();
-        $chirurgies->setName("chirurgie_de_la_silhouette");
+        $chirurgies->setName("chirurgie de la silhouette");
         $chirurgies->setContent("abcd");
-        $chirurgies->setPicture("http://placehold.it/90x90");
+        $chirurgies->setThumbnail("http://placehold.it/90x90");
         $manager->persist($chirurgies);
-        $this->addreference("chirurgie_de_la_silhouette", $chirurgies);
+        $this->addreference("chirurgie de la silhouette", $chirurgies);
 
         $chirurgiem =new Category();
-        $chirurgiem->setName("chirurgie_mammaire");
+        $chirurgiem->setName("chirurgie mammaire");
         $chirurgiem->setContent("abcd");
-        $chirurgiem->setPicture("http://placehold.it/90x90");
+        $chirurgiem->setThumbnail("http://placehold.it/90x90");
         $manager->persist($chirurgiem);
-        $this->addreference("chirurgie_mammaire", $chirurgiem);
+        $this->addreference("chirurgie mammaire", $chirurgiem);
 
         $chirurgiec =new Category();
-        $chirurgiec->setName("chirurgie_des_cancers_cutanés");
+        $chirurgiec->setName("chirurgie_des cancers_cutanés");
         $chirurgiec->setContent("abcd");
-        $chirurgiec->setPicture("http://placehold.it/90x90");
+        $chirurgiec->setThumbnail("http://placehold.it/90x90");
         $manager->persist($chirurgiec);
-        $this->addreference("chirurgie_des_cancers_cutanés", $chirurgiec);
+        $this->addreference("chirurgie des cancers cutanés", $chirurgiec);
 
         $reconstructionm =new Category();
-        $reconstructionm->setName("reconstruction_mammaire");
+        $reconstructionm->setName("reconstruction mammaire");
         $reconstructionm->setContent("abcd");
-        $reconstructionm->setPicture("http://placehold.it/90x90");
+        $reconstructionm->setThumbnail("http://placehold.it/90x90");
         $manager->persist($reconstructionm);
-        $this->addreference("reconstruction_mammaire", $reconstructionm);
+        $this->addreference("reconstruction mammaire", $reconstructionm);
 /*
         $injectiona = new Category();
         $injectiona->setName("acide_hyaluronique");
@@ -86,5 +87,13 @@ class CategoryFixtures extends Fixture
         $manager->persist($augmentationm);
 */
         $manager->flush();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDependencies()
+    {
+
     }
 }

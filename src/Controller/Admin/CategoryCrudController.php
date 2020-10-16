@@ -4,8 +4,11 @@ namespace App\Controller\Admin;
 
 use App\Entity\Category;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class CategoryCrudController extends AbstractCrudController
 {
@@ -20,6 +23,7 @@ class CategoryCrudController extends AbstractCrudController
         return [
             TextField::new('name'),
             TextEditorField::new('content'),
+
         ];
     }
 

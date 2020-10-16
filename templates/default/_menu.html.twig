@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/"><img src="{{ asset('uploads/logo/logo1.png') }}" width="160" height="160" alt="dr_vimont"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+    <div class="collapse navbar-collapse" id="navbarColor03">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">A propos</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href={{ path('philosophy') }}>Notre Philosophie</a>
+                    <a class="dropdown-item" href="{{ path('office') }}">Le Cabinet</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Interventions</a>
+                <div class="dropdown-menu">
+                    {# TODO: render(controller()) #}
+                    {% for category in categories %}
+                        <a class="dropdown-item" href={{ path('category_show', { 'id':category.id }) }}>{{ category.name }}</a>
+                    {% endfor %}
+
+                    {#<a class="dropdown-item" href={{ path('chirurgiev') }}>Chirurgie du visage</a>
+                    <a class="dropdown-item" href={{ path('chirurgies') }}>Chirurgie de la silhouette</a>
+                    <a class="dropdown-item" href={{ path('chirurgiecc') }}>Chirurgie des cancers cutanés</a>
+                    <a class="dropdown-item" href={{ path('reconstructionm') }}>Reconstruction mammaire</a>#}
+                </div>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" href={{ path('news_index') }}>News</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('faq_index') }}">Faq</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href={{ path('picture') }}>Photos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href={{ path('price') }}>Tarifs</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href={{ path('contact') }}>Contact</a>
+            </li>
+        </ul>
+    </div>
+</nav>

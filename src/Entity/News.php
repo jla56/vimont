@@ -4,11 +4,15 @@ namespace App\Entity;
 
 use App\Repository\NewsRepository;
 use Doctrine\ORM\Mapping as ORM;
+use phpDocumentor\Reflection\Types\Mixed_;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 
 /**
  * @ORM\Entity(repositoryClass=NewsRepository::class)
  * @ORM\HasLifecycleCallbacks()
+ * @vich\Uploadable()
  */
 class News
 {
@@ -25,9 +29,49 @@ class News
     private $title;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=100, nullable=true)
      */
-    private $picture;
+    private $thumbnail;
+
+
+    /**
+     * @Vich\UploadableField(mapping="thumbnails",fileNameProperty="thumbnail")
+     * @var File
+     */
+    private $thumbnailFile;
+
+    /**
+     * @return mixed
+     */
+    public function getThumbnail()
+    {
+        return $this->thumbnail;
+    }
+
+    /**
+     * @param mixed $thumbnail
+     */
+    public function setThumbnail($thumbnail): void
+    {
+        $this->thumbnail = $thumbnail;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getThumbnailFile()
+    {
+        return $this->thumbnailFile;
+    }
+
+    /**
+     * @param File $thumbnailFile
+     */
+    public function setThumbnailFile(File $thumbnailFile): void
+    {
+        $this->thumbnailFile = $thumbnailFile;
+    }
+
 
     /**
      * @ORM\Column(type="text")
@@ -56,17 +100,7 @@ class News
         return $this;
     }
 
-    public function getPicture(): ?string
-    {
-        return $this->picture;
-    }
 
-    public function setPicture(string $picture): self
-    {
-        $this->picture = $picture;
-
-        return $this;
-    }
 
     public function getContent(): ?string
     {
@@ -101,9 +135,10 @@ class News
     }
 
 
-    public function _toString()
+    public function __toString()
     {
-        return $this->news;
+        return $this->getCreatedAt();
+
     }
 
 }
