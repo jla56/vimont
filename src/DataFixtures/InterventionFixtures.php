@@ -16,7 +16,7 @@ class InterventionFixtures extends Fixture implements DependentFixtureInterface
         $intervention->setTitle("Toxine Botulique");
         $intervention->setContent("la toxine botulique");
         $intervention->setCreatedAt(new\DateTime());
-        $intervention->setCategory($this->getReference("médecine_esthétique"));
+        $intervention->setCategory($this->getReference("médecine esthétique"));
         $intervention->setPractitioner($this->getReference("thibault-vimont"));
         $manager->persist($intervention);
         $this->addReference("toxine-botulique", $intervention);

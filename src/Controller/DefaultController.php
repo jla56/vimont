@@ -13,15 +13,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DefaultController extends AbstractController
 {
-    /**
-     * @Route("/index", name="index")
-     */
-    public function index()
-    {
-        return $this->render('default/index.html.twig', [
-            'controller_name' => 'DefaultController',
-        ]);
-    }
 
     /**
      * @Route("/", name="home")
@@ -32,7 +23,7 @@ class DefaultController extends AbstractController
         $categories = $categoryRepository->findAll();
 
         return $this->render('default/home.html.twig', [
-            'categories' => $categories,
+            'categories'=> $categoryRepository->findAll()
         ]);
     }
 
@@ -47,7 +38,7 @@ class DefaultController extends AbstractController
 
 
 
-    public function catMenu(CategoryRepository $categoryRepository)
+    public function mainMenu(CategoryRepository $categoryRepository)
     {
         return $this->render('default/_menu.html.twig',[
                 'categories'=> $categoryRepository->findAll()

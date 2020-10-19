@@ -19,7 +19,7 @@ class FaqFixtures extends Fixture implements DependentFixtureInterface
             $question1->setEmail("lespolasdadelia@gmail.com");
             $question1->setDisplay(true);
             $question1->setPseudo("Adelia");
-            $question1->setCategory($this->getReference("médecine_esthétique"));
+            $question1->setCategory($this->getReference("médecine esthétique"));
             $manager->persist($question1);
         }
 

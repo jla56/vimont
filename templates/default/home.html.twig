@@ -1,64 +1,26 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Bienvenue</h1>
+    {% for category in categories %}
+            <div class="sppb-col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ category.name}}</h5>
+                        <p class="card-text">{{ category.content|raw }}</p>
+                        <a href={{ path('category_show', { 'id':category.id }) }} class="btn btn-primary">visite</a>
+                    </div>
+                </div>
+    {% endfor %}
 
-    <div class="row">
-        <div class="col-sm-2">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-2">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-2">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-2">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-2">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div>
-    </div>
 
 
     <div class="jumbotron">
-        <h1 class="display-4">{{"categorie.title"}}</h1>
-        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+        <h1 class="display-4">PRENDRE RDV</h1>
         <hr class="my-4">
-        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+        <p>Une consultation préalable est obligatoire avant tout acte de médecine ou chirurgie esthétique. Cette consultation permettra d'établir un programme médical personnalisé.
+            Pour prendre rendez-vous merci de nous contacter au 02.97.64.81.63 </p>
         <p class="lead">
-            <a class="btn btn-primary btn-sm" href="#" role="button">Learn more</a>
+            <a class="btn btn-primary btn-sm" href="#" role="button">Comment se passe une consultation</a>
         </p>
     </div>
 

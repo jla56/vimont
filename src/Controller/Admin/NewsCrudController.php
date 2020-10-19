@@ -6,6 +6,7 @@ use App\Entity\News;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
@@ -23,11 +24,9 @@ class NewsCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-
             TextField::new('title'),
             TextEditorField::new('content'),
-            ImageField::new('thumbnailFile')->setFormType(VichImageType::class)
-
+            ImageField::new('thumbnailFile')->setFormType(VichImageType::class),
         ];
     }
 

@@ -15,7 +15,7 @@ class NewsFixtures extends Fixture implements DependentFixtureInterface
             $news = new News();
             $news->setTitle("Titre de l'article n°$i");
             $news->setContent("<p>Contenu de l'article n°$i</p>");
-            $news->setPicture("http://placehold.it/350x150");
+            $news->setThumbnail("http://placehold.it/350x150");
             $news->setCreatedAt(new \DateTime());
 
             $manager->persist($news);

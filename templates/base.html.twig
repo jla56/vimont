@@ -10,9 +10,9 @@
     </head>
 
     <body>
-{#    {% include 'default/_menu.html.twig' %}#}
 
-    {{ render(controller('App\\Controller\\DefaultController:catMenu')) }}
+
+    {{ render(controller('App\\Controller\\DefaultController:mainMenu')) }}
 
     <main class="main-content container">
         {% block body %}{% endblock %}
@@ -26,10 +26,10 @@
             </div>
         </footer>
 
-
-
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
+
     </body>
+
 </html>

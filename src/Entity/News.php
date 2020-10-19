@@ -6,6 +6,7 @@ use App\Repository\NewsRepository;
 use Doctrine\ORM\Mapping as ORM;
 use phpDocumentor\Reflection\Types\Mixed_;
 use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 
@@ -41,6 +42,12 @@ class News
     private $thumbnailFile;
 
     /**
+     * @ORM\Column(type="datetime", nullable=true)
+     * @var \DateTime
+     */
+    private $updatedAt;
+
+    /**
      * @return mixed
      */
     public function getThumbnail()
@@ -67,9 +74,13 @@ class News
     /**
      * @param File $thumbnailFile
      */
-    public function setThumbnailFile(File $thumbnailFile): void
+    public function setThumbnailFile(File $thumbnailFile = null)
     {
         $this->thumbnailFile = $thumbnailFile;
+        if ($thumbnailFile) {
+            $this->updatedAt = new \DateTime('now');
+        }
+        return $this;
     }
 
 

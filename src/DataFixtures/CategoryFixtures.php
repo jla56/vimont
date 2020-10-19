@@ -4,10 +4,9 @@ namespace App\DataFixtures;
 
 use App\Entity\Category;
 use Doctrine\Bundle\FixturesBundle\Fixture;
-use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 
-class CategoryFixtures extends Fixture implements DependentFixtureInterface
+class CategoryFixtures extends Fixture
 {
 
     public function load(ObjectManager $manager)
@@ -15,14 +14,14 @@ class CategoryFixtures extends Fixture implements DependentFixtureInterface
         $medecinee =new Category();
         $medecinee->setName("medecine esthétique");
         $medecinee->setContent("abcd");
-        $medecinee->setThumbnailFile("http://placehold.it/90x90");
+        $medecinee->setThumbnail("http://placehold.it/90x90");
         $manager->persist($medecinee);
         $this->addreference("médecine esthétique", $medecinee);
 
         $chirurgiev =new Category();
         $chirurgiev->setName("chirurgie visage");
         $chirurgiev->setContent("abcd");
-        $chirurgiev->setThumbnailFile("http://placehold.it/90x90");
+        $chirurgiev->setThumbnail("http://placehold.it/90x90");
         $manager->persist($chirurgiev);
         $this->addreference("chirurgie_visage", $chirurgiev);
 
@@ -89,11 +88,4 @@ class CategoryFixtures extends Fixture implements DependentFixtureInterface
         $manager->flush();
     }
 
-    /**
-     * @return mixed
-     */
-    public function getDependencies()
-    {
-
-    }
 }

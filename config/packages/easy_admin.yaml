@@ -9,3 +9,8 @@ easy_admin:
     - App\Entity\prectitioner
     - App\Entity\User
 
+
+
+parameters:
+  app.path.product_images: /uploads/images/products
+  # ...

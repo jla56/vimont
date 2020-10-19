@@ -15,7 +15,7 @@
                 <td>{{ news.thumbnail }}</td>
             </tr>
             <tr>
-                <td>{{ news.content }}</td>
+                <td>{{ news.content|raw }}</td>
             </tr>
             <tr>
                 <td>{{ news.createdAt ? news.createdAt|date('Y-m-d H:i:s') : '' }}</td>
