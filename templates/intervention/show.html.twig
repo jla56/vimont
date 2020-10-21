@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}intervention{% endblock %}
+{% block body %}
+
+    <table class="table">
+        <tbody>
+
+        <tr>
+            <td>{{ intervention.title }}</td>
+        </tr>
+        <tr>
+            <td>{{ intervention.content|raw }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+
+
+{% endblock %}

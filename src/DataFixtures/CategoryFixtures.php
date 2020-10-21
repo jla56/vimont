@@ -23,7 +23,7 @@ class CategoryFixtures extends Fixture
         $chirurgiev->setContent("abcd");
         $chirurgiev->setThumbnail("http://placehold.it/90x90");
         $manager->persist($chirurgiev);
-        $this->addreference("chirurgie_visage", $chirurgiev);
+        $this->addreference("chirurgie visage", $chirurgiev);
 
         $chirurgies =new Category();
         $chirurgies->setName("chirurgie de la silhouette");
@@ -40,7 +40,7 @@ class CategoryFixtures extends Fixture
         $this->addreference("chirurgie mammaire", $chirurgiem);
 
         $chirurgiec =new Category();
-        $chirurgiec->setName("chirurgie_des cancers_cutanés");
+        $chirurgiec->setName("chirurgie des cancers cutanés");
         $chirurgiec->setContent("abcd");
         $chirurgiec->setThumbnail("http://placehold.it/90x90");
         $manager->persist($chirurgiec);
@@ -52,39 +52,7 @@ class CategoryFixtures extends Fixture
         $reconstructionm->setThumbnail("http://placehold.it/90x90");
         $manager->persist($reconstructionm);
         $this->addreference("reconstruction mammaire", $reconstructionm);
-/*
-        $injectiona = new Category();
-        $injectiona->setName("acide_hyaluronique");
-        $injectiona->setPrice(250);
-        $injectiona->setContent("viendra combler les ridules");
-        $injectiona->setPicture("http://placehold.it/90x90");
-        $injectiona->setCategory($this->getReference("médecine_esthétique"));
-        $manager->persist($injectiona);
 
-        $otoplastie = new Category();
-        $otoplastie ->setName("otoplastie");
-        $otoplastie ->setPrice(500);
-        $otoplastie ->setContent("recoller les oreilles");
-        $otoplastie ->setPicture("\"http://placehold.it/90x90\"");
-        $otoplastie ->setCategory($this->getReference("chirurgie_visage"));
-        $manager->persist($otoplastie);
-
-        $abdominoplastie = new Category();
-        $abdominoplastie ->setName("abdominoplastie ");
-        $abdominoplastie ->setPrice(600);
-        $abdominoplastie ->setContent("perte en tour de taille");
-        $abdominoplastie ->setPicture("\"http://placehold.it/90x90\"");
-        $abdominoplastie ->setCategory($this->getReference("chirurgie_de_la_silhouette"));
-        $manager->persist($abdominoplastie);
-
-        $augmentationm = new Category();
-        $augmentationm->setName("augmentation mammaire");
-        $augmentationm->setPrice(1100);
-        $augmentationm->setContent("");
-        $augmentationm->setPicture("\"http://placehold.it/90x90\"");
-        $augmentationm->setCategory($this->getReference("chirurgie_mammaire"));
-        $manager->persist($augmentationm);
-*/
         $manager->flush();
     }
 

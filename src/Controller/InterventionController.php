@@ -3,8 +3,11 @@
 namespace App\Controller;
 
 
+
+use App\Entity\Intervention;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Response;
 
 class InterventionController extends AbstractController
 {
@@ -20,56 +23,19 @@ class InterventionController extends AbstractController
         ]);
     }
 
+
     /**
-     * @Route("/intervention", name="intervention")
+     * @Route("/create/{id}/show", name="intervention_show", methods={"GET"})
      */
-    public function intervention()
+    public function show(Intervention $intervention):Response
     {
-        return $this->render('intervention/intervention.html.twig', [
+        return $this->render('intervention/show.html.twig', [
+            'intervention'=>$intervention,
+
         ]);
     }
 
-    /**
-     * @Route("/medecine_esthetique", name="medecine_esthetique")
-     */
-    public function medecine_esthetique(){
-        return $this->render('intervention/medecine_esthetique.html.twig');
-    }
 
-    /**
-     * @Route("/chirurgiev", name="chirurgiev")
-     */
-    public function chirurgiev(){
-        return $this->render('intervention/chirurgiev.html.twig');
-    }
-
-    /**
-     * @Route("/chirurgies", name="chirurgies")
-     */
-    public function chirurgies(){
-        return $this->render('intervention/chirurgies.hml.twig');
-    }
-
-    /**
-     * @Route("/chirurgiem", name="chirurgiem")
-     */
-    public function chirurgiem(){
-        return $this->render('intervention/chirurgiem.html.twig');
-    }
-
-    /**
-     * @Route("/chirurgiecc", name="chirurgiecc")
-     */
-    public function chirurgiecc(){
-        return $this->render('intervention/chirurgiecc.html.twig');
-    }
-
-    /**
-     * @Route("/reconstructionm", name="reconstructionm")
-     */
-    public function reconsructionm(){
-        return $this->render('intervention/reconstructionm.html.twig');
-    }
 
 
 }

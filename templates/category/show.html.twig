@@ -10,18 +10,17 @@
             <tr>
                 <td>{{ category.content|raw }}</td>
             </tr>
-            <tr>
-                <td>{{ category.thumbnail }}</td>
-            </tr>
+            <img src="{{ asset('uploads/thumbnails/' ~category.thumbnail) }}" alt="">
         </tbody>
     </table>
 
-    <ul>
+
         {% for intervention in category.interventions %}
-            <li>{{ intervention.title }}</li>
-                <ul>{{ intervention.content|raw }}</ul>
+            <div>
+            <a href="{{ path('intervention_show',{'id': intervention.id}) }}">{{ intervention.title }}</a>
+            </div>
         {% endfor %}
-    </ul>
+
 
 
 

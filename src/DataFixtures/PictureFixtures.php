@@ -14,7 +14,7 @@ class PictureFixtures extends Fixture implements DependentFixtureInterface
         $picture = new Picture();
         $picture->setName("Nom de la photo");
         $picture->setThumbnail("sepia_femme.jpg");
-        $picture->setIntervention($this->getReference("toxine-botulique"));
+        $picture->setIntervention($this->getReference("toxine botulique"));
         $manager->persist($picture);
 
         $manager->flush();

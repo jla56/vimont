@@ -23,6 +23,7 @@ class NewsController extends AbstractController
         ]);
     }
 
+
     /**
      * @Route("/{id}", name="news_show", methods={"GET"})
      */

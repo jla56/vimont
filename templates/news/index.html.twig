@@ -10,7 +10,7 @@
                 <h2>{{ singlenews.title }}</h2>
                 <div class="metadata">{{ singlenews.createdAt ? singlenews.createdAt|date('Y-m-d H:i:s') : '' }}</div>
                 <div class="content">
-                    <img src="{{ asset('uploads/Face/' ~ singlenews.thumbnail) }}" alt="">
+                    <img src="{{ asset('uploads/thumbnails/' ~ singlenews.thumbnail) }}" alt="">
                     <p>{{ singlenews.content|raw }}</p>
                     <a href="{{ path('news_show', {'id': singlenews.id}) }}" class="btn btn-primary">Lire la suite</a>
                 </div>

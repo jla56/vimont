@@ -7,7 +7,6 @@
 import "jquery";
 import "bootstrap";
 import "bootswatch/dist/lux/bootstrap.min.css";
-// TODO: Note: Replace ^[theme]^ (examples: darkly, slate, cosmo, spacelab, and superhero. See https://bootswatch.com for current theme names.
 
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.scss';

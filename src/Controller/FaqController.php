@@ -31,7 +31,6 @@ class FaqController extends AbstractController
             $entityManager->persist($faq);
             $entityManager->flush();
 
-            // TODO: Envoyer un mail à l'admin du site
 
             return $this->redirectToRoute('faq_index');
         }
