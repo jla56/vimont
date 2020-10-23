@@ -10,26 +10,22 @@
     <table class="table">
         <thead>
             <tr>
-{#                <th>Id</th>#}
                 <th>Category</th>
                 <th>Question</th>
                 <th>Response</th>
                 <th>CreatedAt</th>
-               {# <th>Email</th>
-                <th>Display</th>#}
+
                 <th>Pseudo</th>
             </tr>
         </thead>
         <tbody id="cont">
         {% for faq in faqs %}
             <tr>
-{#                <td>{{ faq.id }}</td>#}
+
                 <td>{{ faq.category }}</td>
                 <td>{{ faq.question }}</td>
                 <td>{{ faq.response }}</td>
                 <td>{{ faq.createdAt ? faq.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-{#                <td>{{ faq.email }}</td>#}
-{#                <td>{{ faq.display ? 'Yes' : 'No' }}</td>#}
                 <td>{{ faq.pseudo }}</td>
             </tr>
         {% else %}

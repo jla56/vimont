@@ -21,14 +21,20 @@ class FaqController extends AbstractController
      */
     public function index(Request $request, FaqRepository $faqRepository): Response
     {
+        //on instancie l'entité faq
         $faq = new Faq();
+        //nous créons l'objet formulaire
         $form = $this->createForm(FaqType::class, $faq);
         $form->handleRequest($request);
+
+        //on vérifie si le formulaire a été envoyé et si les données sont valides
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $faq->setDisplay(false);
+            //on hydrate le commentaire
             $entityManager->persist($faq);
+            //on envoie en base de données
             $entityManager->flush();
 
 
