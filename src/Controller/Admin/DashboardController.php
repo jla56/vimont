@@ -22,7 +22,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Router\CrudUrlGenerator;
 
 class DashboardController extends AbstractDashboardController
 {
-
+    //declaration des propriétés
     protected $categoryRepository;
     protected $interventionRepository;
     protected $newsRepository;
@@ -31,7 +31,7 @@ class DashboardController extends AbstractDashboardController
 
 
     public function __construct(
-
+        //récupération des entités
         CategoryRepository $categoryRepository,
         InterventionRepository $interventionRepository,
         NewsRepository $newsRepository,

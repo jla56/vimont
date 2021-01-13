@@ -43,8 +43,7 @@
         "twbs/bootstrap": "4.5.2",
         "twig/extra-bundle": "^2.12|^3.0",
         "twig/twig": "^2.12|^3.0",
-        "vich/uploader-bundle": "^1.15",
-      "ext-http": "*"
+        "vich/uploader-bundle": "^1.15"
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^3.3",
@@ -104,4 +103,6 @@
             "require": "5.1.*"
         }
     }
+
+
 }

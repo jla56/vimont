@@ -2,7 +2,7 @@
 
 namespace App\DataFixtures;
 
-use\App\Entity\Picture;
+use App\Entity\Picture;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;

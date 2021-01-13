@@ -23,6 +23,7 @@ class CategoryCrudController extends AbstractCrudController
         return [
             TextField::new('name'),
             TextEditorField::new('content'),
+            ImageField::new('thumbnail')->setBasePath('/uploads/thumbnails'),
             ImageField::new('thumbnailFile')->setFormType(VichImageType::class)
         ];
     }

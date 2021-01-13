@@ -6,6 +6,7 @@ use App\Entity\Faq;
 use App\Form\FaqType;
 use App\Repository\FaqRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -18,8 +19,12 @@ class FaqController extends AbstractController
 
     /**
      * @Route("/", name="faq_index", methods={"GET","POST"})
+     * @param Request $request
+     * @param FaqRepository $faqRepository
+     * @param EventDispatcherInterface $dispatcher
+     * @return Response
      */
-    public function index(Request $request, FaqRepository $faqRepository): Response
+    public function index(Request $request, FaqRepository $faqRepository, EventDispatcherInterface $dispatcher): Response
     {
         //on instancie l'entité faq
         $faq = new Faq();
@@ -36,6 +41,8 @@ class FaqController extends AbstractController
             $entityManager->persist($faq);
             //on envoie en base de données
             $entityManager->flush();
+
+
 
 
             return $this->redirectToRoute('faq_index');

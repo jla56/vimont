@@ -22,6 +22,7 @@ class PictureCrudController extends AbstractCrudController
         return [
             TextField::new('name'),
             AssociationField::new('intervention'),
+            ImageField::new('thumbnail')->setBasePath('/uploads/thumbnails'),
             ImageField::new('thumbnailFile')->setFormType(VichImageType::class)
         ];
     }

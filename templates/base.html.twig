@@ -4,8 +4,9 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Dr Vimont{% endblock %}</title>
+        {{ encore_entry_link_tags('app') }}
         {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
+
         {% endblock %}
     </head>
 
@@ -14,22 +15,18 @@
 
     {{ render(controller('App\\Controller\\DefaultController:mainMenu')) }}
 
-    <main class="main-content container">
+    <main class="main-content container pt-5">
         {% block body %}{% endblock %}
     </main>
 
 
         <footer class="footer">
-            <div class="container">
-
-
-            </div>
         </footer>
 
         {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
 
+        {% endblock %}
+    {{ encore_entry_script_tags('app') }}
     </body>
 
 </html>

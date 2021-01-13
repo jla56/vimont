@@ -12,5 +12,5 @@ easy_admin:
 
 
 parameters:
-  app.path.product_images: /uploads/images/products
+  app.path.product_images: /uploads/thumbnails
   # ...
